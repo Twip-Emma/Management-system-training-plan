@@ -10,6 +10,7 @@ import java.util.UUID;
  */
 @Component
 public class GetUUID {
+    //获取用户唯一id
     public String getUserUUID() {
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
@@ -17,6 +18,7 @@ public class GetUUID {
         return uuidStr;
     }
 
+    //获取学院唯一id
     public String getCollegeUUID() {
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
@@ -24,6 +26,7 @@ public class GetUUID {
         return uuidStr;
     }
 
+    //获取课程唯一id
     public String getSourseUUID() {
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
@@ -31,6 +34,7 @@ public class GetUUID {
         return uuidStr;
     }
 
+    //获取选课状态唯一id
     public String getSituationUUID() {
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
@@ -38,6 +42,7 @@ public class GetUUID {
         return uuidStr;
     }
 
+    //获取日志唯一id
     public String getLogUUID() {
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
