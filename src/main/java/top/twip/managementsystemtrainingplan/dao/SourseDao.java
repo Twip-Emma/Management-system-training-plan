@@ -1,8 +1,8 @@
 package top.twip.managementsystemtrainingplan.dao;
 
 import org.apache.ibatis.annotations.*;
-import top.twip.managementsystemtrainingplan.entity.College;
-import top.twip.managementsystemtrainingplan.entity.Situation;
+import top.twip.managementsystemtrainingplan.entity.Sourse;
+import top.twip.managementsystemtrainingplan.entity.Sourse;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public interface SourseDao {
                     @Result(column = "college",property = "collegeId"),
                     @Result(column = "more_text",property = "moreText")
             })
-    List<College> findAll();
+    List<Sourse> findAll();
 
     //根据ID删除sourse
     @Delete("delete from sourse where sourse_id=#{sourseId}")
@@ -35,17 +35,17 @@ public interface SourseDao {
     //根据ID搜索sourse
     @Select("select * from sourse where sourse_id=#{sourseId}")
     @ResultMap(value = "sourse")
-    Situation findSourseById(String sourseId);
+    Sourse findSourseById(String sourseId);
 
     //根据名称搜索sourse
     @Select("select * from sourse where sourse_name=#{sourseName}")
     @ResultMap(value = "sourse")
-    Situation findSourseByName(String sourseName);
+    Sourse findSourseByName(String sourseName);
 
     //根据college搜索sourse列表
     @Select("select * from sourse where college=#{collegeId}")
     @ResultMap(value = "sourse")
-    List<Situation> findSourseByCollegeIdId(String collegeId);
+    List<Sourse> findSourseByCollege(String collegeId);
 
     //增加一个sourse
     @Insert("insert into situation (sourse_id,sourse_name,mark,theory_time,test_time,field_time,term_time,college,more_text)" +

@@ -8,6 +8,7 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Author: 七画一只妖
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Service
 public class LoginService {
-    private UserIdentify userIdentify;
+    private final UserIdentify userIdentify;
 
     @Autowired
     public LoginService(UserIdentify userIdentify) {
@@ -23,15 +24,15 @@ public class LoginService {
     }
 
     //登录用户
-    public WebResult userLogin(User user){
+    public WebResult<User> userLogin(User user){
         Boolean aBoolean = userIdentify.checkUserPass(user.getUserCard(), user.getUserPass());
         if(aBoolean){
             User userByCard = userIdentify.findUserByCard(user.getUserCard());
-            WebResult result = new WebResult(10000,"登录成功");
+            WebResult<User> result = new WebResult<>(10000,"登录成功");
             result.setData(userByCard);
             return result;
         }else {
-            return new WebResult(40000,"登录失败，请检查账号或密码");
+            return new WebResult<>(40000,"登录失败，请检查账号或密码");
         }
     }
 }

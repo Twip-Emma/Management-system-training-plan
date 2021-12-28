@@ -11,7 +11,7 @@ import top.twip.managementsystemtrainingplan.utils.identify.UserIdentify;
  */
 @Service
 public class RegisterService {
-    private UserIdentify loginIdentify;
+    private final UserIdentify loginIdentify;
 
     @Autowired
     public RegisterService(UserIdentify loginIdentify) {

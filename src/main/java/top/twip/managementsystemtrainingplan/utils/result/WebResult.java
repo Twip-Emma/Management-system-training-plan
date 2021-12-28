@@ -15,10 +15,7 @@ public class WebResult<T>{
     private Integer code;
     private String message;
     private T data;
-
     public WebResult(Integer code,String message){
         this(code,message,null);
     }
-
-
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import top.twip.managementsystemtrainingplan.dao.UserDao;
 import top.twip.managementsystemtrainingplan.entity.User;
+import top.twip.managementsystemtrainingplan.utils.tool.GetUUID;
 import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
 
 /**
@@ -11,14 +12,16 @@ import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
  * @Date: 2021/12/28 10:41
  */
 @Component
-public class IdentifyTool {
-    private UserDao userDao;
-    private PasswordEncoder passwordEncoder;
+public class UserIdentifyTool {
+    private final UserDao userDao;
+    private final PasswordEncoder passwordEncoder;
+    private final GetUUID getUUID;
 
     @Autowired
-    public IdentifyTool(UserDao userDao,PasswordEncoder passwordEncoder) {
+    public UserIdentifyTool(UserDao userDao, PasswordEncoder passwordEncoder,GetUUID getUUID) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
+        this.getUUID = getUUID;
     }
 
     //根据ID搜索用户
@@ -49,7 +52,8 @@ public class IdentifyTool {
     //新建用户
     public void createNewUser(User user){
         String encodePass = passwordEncoder.encode(user.getUserPass());
-        userDao.createNewUser(user.getUserId(),user.getUserName(),user.getUserSex(),user.getUserType(),user.getUserStage(),
+        String userUUID = getUUID.getUserUUID();
+        userDao.createNewUser(userUUID,user.getUserName(),user.getUserSex(),user.getUserType(),user.getUserStage(),
         user.getUserMark(),user.getUserState(),user.getUserCard(),encodePass);
     }
 }

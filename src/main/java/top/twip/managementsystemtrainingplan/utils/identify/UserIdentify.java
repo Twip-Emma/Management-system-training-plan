@@ -2,7 +2,6 @@ package top.twip.managementsystemtrainingplan.utils.identify;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import top.twip.managementsystemtrainingplan.dao.UserDao;
 import top.twip.managementsystemtrainingplan.entity.User;
 import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
 
@@ -12,11 +11,11 @@ import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
  */
 @Component
 public class UserIdentify {
-    private IdentifyTool identifyTool;
-    private PasswordEncoder passwordEncoder;
+    private final UserIdentifyTool identifyTool;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserIdentify(IdentifyTool identifyTool, PasswordEncoder passwordEncoder) {
+    public UserIdentify(UserIdentifyTool identifyTool, PasswordEncoder passwordEncoder) {
         this.identifyTool = identifyTool;
         this.passwordEncoder = passwordEncoder;
     }
