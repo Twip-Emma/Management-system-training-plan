@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WebResult<T> {
+public class WebResult<T>{
     private Integer code;
     private String message;
     private T data;
@@ -19,4 +19,6 @@ public class WebResult<T> {
     public WebResult(Integer code,String message){
         this(code,message,null);
     }
+
+
 }

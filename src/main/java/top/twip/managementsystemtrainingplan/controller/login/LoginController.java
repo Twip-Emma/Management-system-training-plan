@@ -25,6 +25,11 @@ public class LoginController {
     @PostMapping(value = "/newUser")
     public WebResult createNewUser(@RequestBody String webData){
         User user = JSONObject.parseObject(webData, User.class);
-        return null;
+        Integer code = loginService.createNewUser(user);
+        if(code == 10000) {
+            return new WebResult(10000, "成功创建");
+        }else{
+            return new WebResult(40000,"创建失败");
+        }
     }
 }
