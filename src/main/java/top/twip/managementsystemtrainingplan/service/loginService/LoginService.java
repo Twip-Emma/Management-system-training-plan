@@ -18,11 +18,10 @@ public class LoginService {
         this.loginIdentify = loginIdentify;
     }
 
-    //创建用户，返回状态码
-    public Integer createNewUser(User user){
-        Boolean create = loginIdentify.checkUserCreate(user.getUserCard());
-        if(create){
-            loginIdentify.createNewUser(user);
+    //登录用户
+    public Integer userLogin(User user){
+        Boolean aBoolean = loginIdentify.checkUserPass(user.getUserCard(), user.getUserPass());
+        if(aBoolean){
             return 10000;
         }else {
             return 40000;

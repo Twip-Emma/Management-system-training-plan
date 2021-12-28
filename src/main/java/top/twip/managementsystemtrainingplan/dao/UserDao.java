@@ -26,7 +26,7 @@ public interface UserDao {
                     @Result(column = "user_card",property = "userCard"),
                     @Result(column = "user_pass",property = "userPass")
             })
-    List<College> findAll();
+    List<User> findAll();
 
     //根据ID删除user
     @Delete("delete from user where user_id=#{userId}")

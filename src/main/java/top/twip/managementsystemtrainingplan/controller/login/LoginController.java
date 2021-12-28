@@ -22,14 +22,14 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    @PostMapping(value = "/newUser")
+    @PostMapping(value = "/checkUser")
     public WebResult createNewUser(@RequestBody String webData){
         User user = JSONObject.parseObject(webData, User.class);
-        Integer code = loginService.createNewUser(user);
-        if(code == 10000) {
-            return new WebResult(10000, "成功创建");
+        Integer code = loginService.userLogin(user);
+        if(code == 10000){
+            return new WebResult(10000,"登录成功！");
         }else{
-            return new WebResult(40000,"创建失败");
+            return new WebResult(40000,"登录失败，请检查账号或密码是否正确");
         }
     }
 }
