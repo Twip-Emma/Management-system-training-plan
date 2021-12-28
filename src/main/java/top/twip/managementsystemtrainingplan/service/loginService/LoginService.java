@@ -3,7 +3,11 @@ package top.twip.managementsystemtrainingplan.service.loginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.twip.managementsystemtrainingplan.entity.User;
-import top.twip.managementsystemtrainingplan.utils.identify.LoginIdentify;
+import top.twip.managementsystemtrainingplan.utils.identify.UserIdentify;
+import top.twip.managementsystemtrainingplan.utils.result.WebResult;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Author: 七画一只妖
@@ -11,20 +15,23 @@ import top.twip.managementsystemtrainingplan.utils.identify.LoginIdentify;
  */
 @Service
 public class LoginService {
-    private LoginIdentify loginIdentify;
+    private UserIdentify userIdentify;
 
     @Autowired
-    public LoginService(LoginIdentify loginIdentify) {
-        this.loginIdentify = loginIdentify;
+    public LoginService(UserIdentify userIdentify) {
+        this.userIdentify = userIdentify;
     }
 
     //登录用户
-    public Integer userLogin(User user){
-        Boolean aBoolean = loginIdentify.checkUserPass(user.getUserCard(), user.getUserPass());
+    public WebResult userLogin(User user){
+        Boolean aBoolean = userIdentify.checkUserPass(user.getUserCard(), user.getUserPass());
         if(aBoolean){
-            return 10000;
+            User userByCard = userIdentify.findUserByCard(user.getUserCard());
+            WebResult result = new WebResult(10000,"登录成功");
+            result.setData(userByCard);
+            return result;
         }else {
-            return 40000;
+            return new WebResult(40000,"登录失败，请检查账号或密码");
         }
     }
 }

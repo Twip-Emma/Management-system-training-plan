@@ -31,6 +31,11 @@ public class IdentifyTool {
         return userDao.findUserByName(userName);
     }
 
+    //根据账号查询用户
+    public User findUserByCard(String userCard){
+        return userDao.findUserByCard(userCard);
+    }
+
     //根据账号查询密码
     public String findPassByCard(String userCard){
         User user = userDao.findUserByCard(userCard);

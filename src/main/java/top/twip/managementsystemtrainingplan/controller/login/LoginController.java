@@ -9,6 +9,8 @@ import top.twip.managementsystemtrainingplan.entity.User;
 import top.twip.managementsystemtrainingplan.service.loginService.LoginService;
 import top.twip.managementsystemtrainingplan.utils.result.WebResult;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Author: 七画一只妖
  * @Date: 2021/12/28 10:07
@@ -23,13 +25,10 @@ public class LoginController {
     }
 
     @PostMapping(value = "/checkUser")
-    public WebResult createNewUser(@RequestBody String webData){
+    public WebResult createNewUser(@RequestBody String webData,
+                                   HttpServletRequest request){
         User user = JSONObject.parseObject(webData, User.class);
-        Integer code = loginService.userLogin(user);
-        if(code == 10000){
-            return new WebResult(10000,"登录成功！");
-        }else{
-            return new WebResult(40000,"登录失败，请检查账号或密码是否正确");
-        }
+        WebResult webResult = loginService.userLogin(user);
+        return webResult;
     }
 }

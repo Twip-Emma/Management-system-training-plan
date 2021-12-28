@@ -8,6 +8,7 @@ import top.twip.managementsystemtrainingplan.entity.College;
 import top.twip.managementsystemtrainingplan.entity.User;
 import top.twip.managementsystemtrainingplan.service.loginService.LoginService;
 import top.twip.managementsystemtrainingplan.service.loginService.RegisterService;
+import top.twip.managementsystemtrainingplan.utils.result.WebResult;
 import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
 
 import java.util.List;
@@ -68,7 +69,7 @@ class ManagementSystemTrainingPlanApplicationTests {
         User user = new User();
         user.setUserCard("20191212112");
         user.setUserPass("123456");
-        Integer integer = loginService.userLogin(user);
-        System.out.println(integer);
+        WebResult webResult = loginService.userLogin(user);
+        System.out.println(webResult);
     }
 }

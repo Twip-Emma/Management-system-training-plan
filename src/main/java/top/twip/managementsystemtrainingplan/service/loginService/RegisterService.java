@@ -3,7 +3,7 @@ package top.twip.managementsystemtrainingplan.service.loginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.twip.managementsystemtrainingplan.entity.User;
-import top.twip.managementsystemtrainingplan.utils.identify.LoginIdentify;
+import top.twip.managementsystemtrainingplan.utils.identify.UserIdentify;
 
 /**
  * @Author: 七画一只妖
@@ -11,10 +11,10 @@ import top.twip.managementsystemtrainingplan.utils.identify.LoginIdentify;
  */
 @Service
 public class RegisterService {
-    private LoginIdentify loginIdentify;
+    private UserIdentify loginIdentify;
 
     @Autowired
-    public RegisterService(LoginIdentify loginIdentify) {
+    public RegisterService(UserIdentify loginIdentify) {
         this.loginIdentify = loginIdentify;
     }
 

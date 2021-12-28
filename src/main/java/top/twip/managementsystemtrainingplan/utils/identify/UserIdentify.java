@@ -11,12 +11,12 @@ import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
  * @Date: 2021/12/28 10:40
  */
 @Component
-public class LoginIdentify{
+public class UserIdentify {
     private IdentifyTool identifyTool;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public LoginIdentify(IdentifyTool identifyTool,PasswordEncoder passwordEncoder) {
+    public UserIdentify(IdentifyTool identifyTool, PasswordEncoder passwordEncoder) {
         this.identifyTool = identifyTool;
         this.passwordEncoder = passwordEncoder;
     }
@@ -29,6 +29,11 @@ public class LoginIdentify{
     //根据姓名搜索User对象
     public User findUserByName(String userName){
         return identifyTool.findUserByName(userName);
+    }
+
+    //根据账号搜索User对象
+    public User findUserByCard(String userCard){
+        return identifyTool.findUserByCard(userCard);
     }
 
     //判断某个姓名是否存在
