@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.twip.managementsystemtrainingplan.dao.CollegeDao;
 import top.twip.managementsystemtrainingplan.entity.College;
+import top.twip.managementsystemtrainingplan.utils.tool.PasswordEncoder;
 
 import java.util.List;
 
@@ -12,10 +13,12 @@ import java.util.List;
 class ManagementSystemTrainingPlanApplicationTests {
 
     private CollegeDao collegeDao;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public ManagementSystemTrainingPlanApplicationTests(CollegeDao collegeDao) {
+    public ManagementSystemTrainingPlanApplicationTests(CollegeDao collegeDao,PasswordEncoder passwordEncoder) {
         this.collegeDao = collegeDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Test
@@ -30,5 +33,11 @@ class ManagementSystemTrainingPlanApplicationTests {
 //            System.out.println(college);
 //        }
         collegeDao.deleteCollegeById("666");
+    }
+
+    @Test
+    void PasswordEncoder(){
+        String encode = passwordEncoder.encode("8848");
+        System.out.println(encode);
     }
 }

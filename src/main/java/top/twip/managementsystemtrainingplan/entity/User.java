@@ -15,4 +15,6 @@ public class User {
     private Integer userStage;
     private Integer userMark;
     private String userState;
+    private String userCard;
+    private String userPass;
 }

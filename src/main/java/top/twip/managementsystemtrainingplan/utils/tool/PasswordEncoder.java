@@ -1,4 +1,4 @@
-package top.twip.managementsystemtrainingplan.utils;
+package top.twip.managementsystemtrainingplan.utils.tool;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;

@@ -3,6 +3,7 @@ package top.twip.managementsystemtrainingplan.dao;
 import org.apache.ibatis.annotations.*;
 import top.twip.managementsystemtrainingplan.entity.College;
 import top.twip.managementsystemtrainingplan.entity.Situation;
+import top.twip.managementsystemtrainingplan.entity.User;
 
 import java.util.List;
 
@@ -21,7 +22,9 @@ public interface UserDao {
                     @Result(column = "user_type",property = "userType"),
                     @Result(column = "user_stage",property = "userStage"),
                     @Result(column = "user_mark",property = "userMark"),
-                    @Result(column = "user_state",property = "userState")
+                    @Result(column = "user_state",property = "userState"),
+                    @Result(column = "user_card",property = "userCard"),
+                    @Result(column = "user_pass",property = "userPass")
             })
     List<College> findAll();
 
@@ -31,19 +34,24 @@ public interface UserDao {
     void deleteUserById(String userId);
 
     //增加一个user
-    @Insert("insert into user (user_id,user_name,user_sex,user_type,user_stage,user_mark,user_state)" +
-            "values(#{userId},#{userName},#{userSex},#{userType},#{userStage},#{userMark},#{userMark})")
+    @Insert("insert into user (user_id,user_name,user_sex,user_type,user_stage,user_mark,user_state,user_card,user_pass)" +
+            "values(#{userId},#{userName},#{userSex},#{userType},#{userStage},#{userMark},#{userMark},#{userCard},#{userPass})")
     @ResultMap(value = "user")
-    void createNewSourse(String userId,String userName,String userSex,String userType,Integer userStage,
-                         Integer userMark,String userState);
+    void createNewUser(String userId,String userName,String userSex,String userType,Integer userStage,
+                         Integer userMark,String userState,String userCard,String userPass);
 
     //根据ID搜索user
     @Select("select * from user where user_id=#{userId}")
     @ResultMap(value = "user")
-    Situation findUserById(String userId);
+    User findUserById(String userId);
 
     //根据名称搜索user
     @Select("select * from user where user_name=#{userName}")
     @ResultMap(value = "user")
-    Situation findUserByName(String userName);
+    User findUserByName(String userName);
+
+    //根据账号搜索user
+    @Select("select * from user where user_card=#{userCard}")
+    @ResultMap(value = "user")
+    User findUserByCard(String userCard);
 }
