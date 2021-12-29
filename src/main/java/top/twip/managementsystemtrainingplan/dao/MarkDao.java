@@ -39,14 +39,20 @@ public interface MarkDao {
     List<Mark> findMarkBySourseId(String sourseId);
 
 
+    //根据用户ID和课程ID搜索对应成绩
+    @Select("select * from mark where user_id=#{userId] and sourse_id=#{sourseId}")
+    @ResultMap(value = "mark")
+    Mark findMarkByUserIdAndSourseId(String userId,String sourseId);
+
+
     //增加一个mark
     @Insert("insert into mark (user_id,sourse_id,result)values(#{userId},#{sourseId},#{result})")
     @ResultMap(value = "mark")
-    void createNewMark(String userId,String sourseId,String result);
+    void createNewMark(String userId,String sourseId,Integer result);
 
 
     //修改mark成绩
     @Update("update mark set result=#{result} where user_id=#{userId} and sourse_id=#{sourseId}")
     @ResultMap(value = "mark")
-    void changeMarkResult(String result,String userId,String sourseId);
+    void changeMarkResult(Integer result,String userId,String sourseId);
 }
