@@ -39,7 +39,7 @@ public class SituationIdentifyTool {
     }
 
     //根据学生ID和课程ID搜索对应状态
-    public List<Situation> findSituationByUserIdAndSourseId(String userId, String sourseId){
+    public Situation findSituationByUserIdAndSourseId(String userId, String sourseId){
         return situationDao.findSituationByUserIdAndSourseId(userId,sourseId);
     }
 
