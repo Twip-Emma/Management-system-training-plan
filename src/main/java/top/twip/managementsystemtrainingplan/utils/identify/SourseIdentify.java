@@ -3,6 +3,8 @@ package top.twip.managementsystemtrainingplan.utils.identify;
 import org.springframework.stereotype.Component;
 import top.twip.managementsystemtrainingplan.entity.Sourse;
 
+import java.util.List;
+
 /**
  * @Author: 七画一只妖
  * @Date: 2021/12/28 15:37
@@ -33,5 +35,15 @@ public class SourseIdentify {
     //根据名称搜索课程
     public Sourse findSourseByName(String sourseName){
         return sourseIdentifyTool.findSourseByName(sourseName);
+    }
+
+    //搜索所有课程
+    public List<Sourse> findAllSourse(){
+        return sourseIdentifyTool.findAllSourseByNone();
+    }
+
+    //根据学院ID获取对应所有课程
+    public List<Sourse> findSourseByCollegeId(String collegeId){
+        return sourseIdentifyTool.findSourseByCollege(collegeId);
     }
 }

@@ -23,11 +23,23 @@ public class ShowSourseService {
 
     //无条件搜索所有课程
     public WebResult<List<Sourse>> findAllSourseByNone(){
-        return null;
+        List<Sourse> allSourse = sourseIdentify.findAllSourse();
+        return getListWebResult(allSourse);
     }
 
     //根据学院搜索课程
     public WebResult<List<Sourse>> findSourseByCollege(String collegeId){
-        return null;
+        List<Sourse> sourseByCollegeId = sourseIdentify.findSourseByCollegeId(collegeId);
+        return getListWebResult(sourseByCollegeId);
+    }
+
+    private WebResult<List<Sourse>> getListWebResult(List<Sourse> sourseByCollegeId) {
+        if(sourseByCollegeId != null){
+            WebResult<List<Sourse>> result = new WebResult<>(10000, "请求成功");
+            result.setData(sourseByCollegeId);
+            return result;
+        }else{
+            return new WebResult<>(40000,"失败，返回为空");
+        }
     }
 }
