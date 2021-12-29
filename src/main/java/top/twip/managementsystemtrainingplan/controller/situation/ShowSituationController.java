@@ -1,6 +1,15 @@
 package top.twip.managementsystemtrainingplan.controller.situation;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import top.twip.managementsystemtrainingplan.entity.Situation;
+import top.twip.managementsystemtrainingplan.service.situation.ShowSituationService;
+import top.twip.managementsystemtrainingplan.utils.result.WebResult;
+
+import java.util.List;
 
 /**
  * @Author: 七画一只妖
@@ -8,5 +17,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController(value = "/situation")
 public class ShowSituationController {
+    private final ShowSituationService showSituationService;
 
+    @Autowired
+    public ShowSituationController(ShowSituationService showSituationService) {
+        this.showSituationService = showSituationService;
+    }
+
+    @GetMapping(value = "/findAll")
+    public WebResult<List<Situation>> findAll(){
+        return showSituationService.findAllSituation();
+    }
+
+    @GetMapping(value = "/findSituationByUserId")
+    public WebResult<List<Situation>> findSituationByUserId(@RequestBody String webData){
+        Situation situation = JSONObject.parseObject(webData, Situation.class);
+        return showSituationService.findSituationByUserId(situation);
+    }
+
+    @GetMapping(value = "/findSituationBySourseId")
+    public WebResult<List<Situation>> findSituationBySourseId(@RequestBody String webData){
+        Situation situation = JSONObject.parseObject(webData, Situation.class);
+        return showSituationService.findSituationBySourseId(situation);
+    }
 }
