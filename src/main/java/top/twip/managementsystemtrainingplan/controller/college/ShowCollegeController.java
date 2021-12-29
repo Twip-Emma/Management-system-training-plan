@@ -1,7 +1,15 @@
 package top.twip.managementsystemtrainingplan.controller.college;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import top.twip.managementsystemtrainingplan.entity.College;
 import top.twip.managementsystemtrainingplan.service.college.ShowCollegeService;
+import top.twip.managementsystemtrainingplan.utils.result.WebResult;
+
+import java.util.List;
 
 /**
  * @Author: 七画一只妖
@@ -13,5 +21,22 @@ public class ShowCollegeController {
 
     public ShowCollegeController(ShowCollegeService showCollegeService) {
         this.showCollegeService = showCollegeService;
+    }
+
+    @GetMapping(value = "/showAll")
+    public WebResult<List<College>> showAll(){
+        return showCollegeService.findAllCollege();
+    }
+
+    @GetMapping(value = "/showCollegeById")
+    public WebResult<College> showCollegeById(@RequestBody String webData){
+        College college = JSONObject.parseObject(webData, College.class);
+        return showCollegeService.findCollegeById(college.getCollegeId());
+    }
+
+    @GetMapping(value = "/showCollegeByName")
+    public WebResult<College> showCollegeByName(@RequestBody String webData){
+        College college = JSONObject.parseObject(webData, College.class);
+        return showCollegeService.findCollegeByName(college.getCollegeName());
     }
 }

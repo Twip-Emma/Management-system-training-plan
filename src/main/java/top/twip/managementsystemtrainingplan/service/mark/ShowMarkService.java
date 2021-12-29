@@ -33,6 +33,12 @@ public class ShowMarkService {
         return getListWebResult(markByUserId);
     }
 
+    //根据课程查询所有成绩
+    public WebResult<List<Mark>> findMarkBySourseId(Mark mark){
+        List<Mark> markBySourseId = markIdentify.findMarkBySourseId(mark.getSourseId());
+        return getListWebResult(markBySourseId);
+    }
+
     //根据课程ID查询成绩
     public WebResult<List<Mark>> findAllMark(Mark mark){
         List<Mark> markBySourseId = markIdentify.findMarkBySourseId(mark.getSourseId());
