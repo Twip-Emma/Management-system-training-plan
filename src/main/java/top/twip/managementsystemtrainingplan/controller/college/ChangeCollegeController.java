@@ -13,7 +13,7 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:18
  */
-@RestController(value = "/college")
+@RestController(value = "/collegeChange")
 public class ChangeCollegeController {
     private final ChangeCollegeService changeCollegeService;
 

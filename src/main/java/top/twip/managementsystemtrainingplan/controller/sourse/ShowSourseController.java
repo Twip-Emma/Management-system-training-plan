@@ -16,7 +16,7 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/28 15:39
  */
-@RestController(value = "/sourse")
+@RestController(value = "/sourseShow")
 public class ShowSourseController {
     private final ShowSourseService showSourseService;
 
@@ -26,7 +26,7 @@ public class ShowSourseController {
     }
 
     //直接获取所有课程
-    @GetMapping(value = "/getAllSourse")
+    @GetMapping(value = "/showAllSourse")
     public WebResult<List<Sourse>> findAllSourse(){
         return showSourseService.findAllSourseByNone();
     }

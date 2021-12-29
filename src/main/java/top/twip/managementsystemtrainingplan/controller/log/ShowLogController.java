@@ -16,7 +16,7 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:16
  */
-@RestController(value = "/log")
+@RestController(value = "/logShow")
 public class ShowLogController {
     private final ShowLogService showLogService;
 
@@ -25,7 +25,7 @@ public class ShowLogController {
         this.showLogService = showLogService;
     }
 
-    @GetMapping(value = "/showAll")
+    @GetMapping(value = "/showAllLog")
     public WebResult<List<Log>> showAll(){
         return showLogService.findAllLog();
     }

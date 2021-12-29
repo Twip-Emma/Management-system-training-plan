@@ -15,7 +15,7 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:16
  */
-@RestController(value = "/college")
+@RestController(value = "/collegeShow")
 public class ShowCollegeController {
     private final ShowCollegeService showCollegeService;
 
@@ -23,7 +23,7 @@ public class ShowCollegeController {
         this.showCollegeService = showCollegeService;
     }
 
-    @GetMapping(value = "/showAll")
+    @GetMapping(value = "/showAllCollege")
     public WebResult<List<College>> showAll(){
         return showCollegeService.findAllCollege();
     }

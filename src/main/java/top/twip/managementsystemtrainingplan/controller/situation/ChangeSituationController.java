@@ -15,7 +15,7 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 8:35
  */
-@RestController(value = "/situation")
+@RestController(value = "/situationChange")
 public class ChangeSituationController {
     private final ChangeSituationService changeSituationService;
 

@@ -13,7 +13,7 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:19
  */
-@RestController(value = "/mark")
+@RestController(value = "/markChange")
 public class ChangeMarkController {
     private final ChangeMarkService changeMarkService;
 

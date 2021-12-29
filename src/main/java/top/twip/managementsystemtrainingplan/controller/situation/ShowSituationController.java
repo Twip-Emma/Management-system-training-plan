@@ -15,7 +15,7 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 8:34
  */
-@RestController(value = "/situation")
+@RestController(value = "/situationShow")
 public class ShowSituationController {
     private final ShowSituationService showSituationService;
 
@@ -24,7 +24,7 @@ public class ShowSituationController {
         this.showSituationService = showSituationService;
     }
 
-    @GetMapping(value = "/findAll")
+    @GetMapping(value = "/findAllSituation")
     public WebResult<List<Situation>> findAll(){
         return showSituationService.findAllSituation();
     }
