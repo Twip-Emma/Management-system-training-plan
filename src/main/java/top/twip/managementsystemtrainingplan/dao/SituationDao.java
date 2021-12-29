@@ -46,6 +46,12 @@ public interface SituationDao {
     List<Situation> findSituationBySourseId(String sourseId);
 
 
+    //根据学生ID和课程ID搜索对应状态
+    @Select("select * from situation where user_id=#{userId} and sourse_id=#{sourseId}")
+    @ResultMap(value = "situation")
+    List<Situation> findSituationByUserIdAndSourseId(String userId,String sourseId);
+
+
     //增加一个situation
     @Insert("insert into situation (situation_id,user_id,sourse_id,state)values(#{situationId},#{userId},#{sourseId},#{state})")
     @ResultMap(value = "situation")

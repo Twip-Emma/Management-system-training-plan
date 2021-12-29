@@ -39,7 +39,7 @@ class ManagementSystemTrainingPlanApplicationTests {
 //        for(College college:all){
 //            System.out.println(college);
 //        }
-        collegeDao.deleteCollegeById("666");
+//        collegeDao.deleteCollegeById("666");
     }
 
     @Test
