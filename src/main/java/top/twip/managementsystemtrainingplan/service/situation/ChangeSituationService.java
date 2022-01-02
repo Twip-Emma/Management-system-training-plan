@@ -21,9 +21,9 @@ public class ChangeSituationService {
 
     //创建一个状态
     public WebResult<Situation> createNewSituation(Situation situation){
-        situationIdentify.createNewSituation(situation);
-        Situation re = situationIdentify.findSituationByUserIdAndSourseId(situation.getUserId(), situation.getSourseId());
-        if(re != null){
+        Boolean newSituation = situationIdentify.createNewSituation(situation);
+        if(newSituation){
+            Situation re = situationIdentify.findSituationByUserIdAndSourseId(situation.getUserId(), situation.getSourseId());
             WebResult<Situation> result = new WebResult<>(10000, "请求成功");
             result.setData(re);
             return result;

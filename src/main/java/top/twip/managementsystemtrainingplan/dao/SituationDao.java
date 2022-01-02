@@ -59,7 +59,7 @@ public interface SituationDao {
 
 
     //修改situation状态state
-    @Update("update mark set state=#{state} where situation_id=#{situationId}")
-    @ResultMap(value = "mark")
+    @Update("update situation set state=#{state} where situation_id=#{situationId}")
+    @ResultMap(value = "situation")
     void changeMarkResult(String state,String situationId);
 }

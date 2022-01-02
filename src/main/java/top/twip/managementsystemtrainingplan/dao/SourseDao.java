@@ -48,7 +48,7 @@ public interface SourseDao {
     List<Sourse> findSourseByCollege(String collegeId);
 
     //增加一个sourse
-    @Insert("insert into situation (sourse_id,sourse_name,mark,theory_time,test_time,field_time,term_time,college,more_text)" +
+    @Insert("insert into sourse (sourse_id,sourse_name,mark,theory_time,test_time,field_time,term_time,college,more_text)" +
             "values(#{sourseId},#{sourseName},#{mark},#{theoryTime},#{testTime},#{fieldTime},#{termTime},#{collegeId},#{moreText})")
     @ResultMap(value = "sourse")
     void createNewSourse(String sourseId,String sourseName,Integer mark,Integer theoryTime,Integer testTime,

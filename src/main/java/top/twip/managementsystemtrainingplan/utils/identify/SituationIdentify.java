@@ -19,9 +19,15 @@ public class SituationIdentify {
         this.situationIdentifyTool = situationIdentifyTool;
     }
 
-    //创建一个状态(直接加，无需查重)
-    public void createNewSituation(Situation situation){
-        situationIdentifyTool.createNewSituation(situation.getUserId(), situation.getSourseId(), situation.getState());
+    //创建一个状态(需要查重)
+    public Boolean createNewSituation(Situation situation){
+        Situation situationByUserIdAndSourseId = situationIdentifyTool.findSituationByUserIdAndSourseId(situation.getUserId(), situation.getSourseId());
+        if(situationByUserIdAndSourseId == null){
+            situationIdentifyTool.createNewSituation(situation.getUserId(), situation.getSourseId(), situation.getState());
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //修改某个状态
