@@ -35,10 +35,10 @@ public interface UserDao {
 
     //增加一个user
     @Insert("insert into user (user_id,user_name,user_sex,user_type,user_stage,user_mark,user_state,user_card,user_pass)" +
-            "values(#{userId},#{userName},#{userSex},#{userType},#{userStage},#{userMark},#{userState},#{userCard},#{userPass})")
+            "values(#{userId},#{userName},#{userSex},#{userType},#{userStage},0,#{userState},#{userCard},#{userPass})")
     @ResultMap(value = "user")
     void createNewUser(String userId,String userName,String userSex,String userType,Integer userStage,
-                         Integer userMark,String userState,String userCard,String userPass);
+                         String userState,String userCard,String userPass);
 
     //根据ID搜索user
     @Select("select * from user where user_id=#{userId}")

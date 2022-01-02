@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping(value = "/login")
 public class LoginController {
-    private LoginService loginService;
+    private final LoginService loginService;
 
     @Autowired
     public LoginController(LoginService loginService) {
@@ -29,10 +29,9 @@ public class LoginController {
     }
 
     @PostMapping(value = "/checkUser")
-    public WebResult createNewUser(@RequestBody String webData,
+    public WebResult<User> createNewUser(@RequestBody String webData,
                                    HttpServletRequest request){
         User user = JSONObject.parseObject(webData, User.class);
-        WebResult webResult = loginService.userLogin(user);
-        return webResult;
+        return loginService.userLogin(user);
     }
 }

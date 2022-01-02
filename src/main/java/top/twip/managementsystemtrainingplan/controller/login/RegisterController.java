@@ -18,7 +18,7 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
 @RestController
 @RequestMapping(value = "/register")
 public class RegisterController {
-    private RegisterService registerService;
+    private final RegisterService registerService;
 
     @Autowired
     public RegisterController(RegisterService registerService) {
@@ -26,13 +26,13 @@ public class RegisterController {
     }
 
     @PostMapping(value = "/newUser")
-    public WebResult createNewUser(@RequestBody String webData){
+    public WebResult<User> createNewUser(@RequestBody String webData){
         User user = JSONObject.parseObject(webData, User.class);
         Integer code = registerService.createNewUser(user);
         if(code == 10000) {
-            return new WebResult(10000, "成功创建");
+            return new WebResult<>(10000, "成功创建");
         }else{
-            return new WebResult(40000,"创建失败");
+            return new WebResult<>(40000,"创建失败");
         }
     }
 }

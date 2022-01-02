@@ -54,6 +54,6 @@ public class UserIdentifyTool {
         String encodePass = passwordEncoder.encode(user.getUserPass());
         String userUUID = getUUID.getUserUUID();
         userDao.createNewUser(userUUID,user.getUserName(),user.getUserSex(),user.getUserType(),user.getUserStage(),
-        user.getUserMark(),user.getUserState(),user.getUserCard(),encodePass);
+        user.getUserState(),user.getUserCard(),encodePass);
     }
 }
