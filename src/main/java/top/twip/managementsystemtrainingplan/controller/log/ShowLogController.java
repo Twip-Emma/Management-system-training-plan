@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.twip.managementsystemtrainingplan.entity.Log;
 import top.twip.managementsystemtrainingplan.entity.Log;
@@ -16,7 +17,8 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:16
  */
-@RestController(value = "/logShow")
+@RestController
+@RequestMapping(value = "/logShow")
 public class ShowLogController {
     private final ShowLogService showLogService;
 

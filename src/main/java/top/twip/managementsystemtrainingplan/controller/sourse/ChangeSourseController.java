@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.twip.managementsystemtrainingplan.entity.Sourse;
 import top.twip.managementsystemtrainingplan.service.sourse.ChangeSourseService;
@@ -13,7 +14,8 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 8:16
  */
-@RestController(value = "/sourseChange")
+@RestController
+@RequestMapping(value = "/sourseChange")
 public class ChangeSourseController {
     private final ChangeSourseService changeSourseService;
 

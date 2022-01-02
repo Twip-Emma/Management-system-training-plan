@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.twip.managementsystemtrainingplan.entity.User;
 import top.twip.managementsystemtrainingplan.service.loginService.LoginService;
@@ -14,7 +15,8 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/28 10:13
  */
-@RestController(value = "register")
+@RestController
+@RequestMapping(value = "/register")
 public class RegisterController {
     private RegisterService registerService;
 

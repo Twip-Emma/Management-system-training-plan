@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.twip.managementsystemtrainingplan.entity.Situation;
 import top.twip.managementsystemtrainingplan.service.situation.ChangeSituationService;
@@ -15,7 +16,8 @@ import top.twip.managementsystemtrainingplan.utils.result.WebResult;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 8:35
  */
-@RestController(value = "/situationChange")
+@RestController
+@RequestMapping(value = "/situationChange")
 public class ChangeSituationController {
     private final ChangeSituationService changeSituationService;
 

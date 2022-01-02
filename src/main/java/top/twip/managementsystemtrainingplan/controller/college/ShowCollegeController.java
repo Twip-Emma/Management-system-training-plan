@@ -1,10 +1,7 @@
 package top.twip.managementsystemtrainingplan.controller.college;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.twip.managementsystemtrainingplan.entity.College;
 import top.twip.managementsystemtrainingplan.service.college.ShowCollegeService;
 import top.twip.managementsystemtrainingplan.utils.result.WebResult;
@@ -15,7 +12,8 @@ import java.util.List;
  * @Author: 七画一只妖
  * @Date: 2021/12/29 16:16
  */
-@RestController(value = "/collegeShow")
+@RestController
+@RequestMapping(value = "/collegeShow")
 public class ShowCollegeController {
     private final ShowCollegeService showCollegeService;
 

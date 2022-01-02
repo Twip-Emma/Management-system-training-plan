@@ -40,7 +40,7 @@ public interface MarkDao {
 
 
     //根据用户ID和课程ID搜索对应成绩
-    @Select("select * from mark where user_id=#{userId] and sourse_id=#{sourseId}")
+    @Select("select * from mark where user_id=#{userId} and sourse_id=#{sourseId}")
     @ResultMap(value = "mark")
     Mark findMarkByUserIdAndSourseId(String userId,String sourseId);
 
